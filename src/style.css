@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font font-family:'courier new',courier,monospace;
+}
+
+body {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background:#054f77  ;
+  
+
+}
+
+.container{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color:#ffffff;
+  padding: 20px;
+  border-radius: 8px ;
+
+
+
+}
+
+#timer{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: weight 600px;
+  font-size:30px;
+  background-color: #ffffff;
+  padding: 200px;
+  width: 200px;
+  border: 3px solid #054f77;
+  border-radius: 100%;
+  
+  
+
+
+}
+
+
+
+#actions{
+
+margin-top: 4px;
+display: flex;
+gap: 5px;
+
+}
+
+button{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding:6px ;
+  border-radius:3px;
+  background-color:#cecece;
+  border:1px;
+  font-size:20px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s ease-in ;
+  
+
+}
+
+button:hover{
+
+   background-color:#b0afaf;
+
+}
+
+
+#marks-list{
+display: flex;
+flex-direction: column;
+gap: 0.7px;
+
+}
+
+#marks-list p:first-child {
+
+  margin-top: 1.5px;
+  height: 20px;
+}
+
+
+
+
+
+
