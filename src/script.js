@@ -5,10 +5,10 @@ let timer = 0;
 let marks = [];
 
 const formattime = (time) => {
-const hours = Math.floor(time / 360000);
-const minutes = Math.floor((time % 360000) / 6000);
-const seconds = Math.floor((time % 6000) / 100);
-const hundreths = time % 100;
+const hours = Math.floor(time / 3600000);
+const minutes = Math.floor((time % 3600000) / 60000);
+const seconds = Math.floor((time % 60000) / 1000);
+const hundreths = Math.floor((time % 1000) / 10);
 
 return  `${hours.toString().padStart(2,  '0')}:${minutes.toString().padStart(2,  '0')}:${seconds.toString().padStart(2,  '0')}:${hundreths.toString().padStart(2,  '0')}`;
 
@@ -16,13 +16,24 @@ return  `${hours.toString().padStart(2,  '0')}:${minutes.toString().padStart(2, 
 
 }
 
+const addmarktolist = (markindex, marktime) => {
+    const p = document.createElement('p');
+    p.textContent = `Marca ${markindex}: ${formattime(marktime)}`;
+    markslist.appendChild(p);
+};
+
+
+const marktime = () => {
+    marks.push(timer);
+    addmarktolist(marks.length ,marks[marks.length - 1]);
+
+}
  
 const toggletimer = () =>{
 
     const button = document.getElementById ('power');
     const action = button.getAttribute('action');
 
-    clearInterval( intervalid);
 
     if(action === 'start' || action === 'continue') {
         intervalid = setInterval(() => {
@@ -36,6 +47,7 @@ const toggletimer = () =>{
         button.innerHTML = '<ion-icon name="pause-outline"></ion-icon>';
 
     } else if (action === 'pause') {
+        clearInterval(intervalid);
         button.setAttribute('action' , 'continue');
         button.innerHTML = '<ion-icon name="play-outline"></ion-icon>';
 
@@ -50,4 +62,6 @@ const settimer = (time) => {
 
 
 document.getElementById('power').addEventListener('click' , toggletimer);
+document.getElementById('mark').addEventListener('click' , marktime);
 
+ 
