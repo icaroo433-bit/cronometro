@@ -56,6 +56,19 @@ const toggletimer = () =>{
 
 };
 
+const resettimer = () =>{
+
+clearInterval(intervalid)
+intervalid =0;
+timer =0;
+marks = [];
+settimer (timer);
+markslist.innerHTML = "";
+const button = document.getElementById ('power');
+ button.getAttribute('action', 'start');
+button.innerHTML = '<ion-icon name="play-outline"></ion-icon>';
+}
+
 const settimer = (time) => {
     timerEl.innerText = formattime(time);
 };
@@ -63,5 +76,7 @@ const settimer = (time) => {
 
 document.getElementById('power').addEventListener('click' , toggletimer);
 document.getElementById('mark').addEventListener('click' , marktime);
+document.getElementById('reset').addEventListener('click' , resettimer);
+
 
  
